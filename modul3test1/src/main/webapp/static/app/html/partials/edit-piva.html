@@ -1,0 +1,38 @@
+<div ng-controller="pivaCtrl">
+  <div ng-controller="editPivaCtrl">
+    <form>
+        <div class="form-group">
+            <label for="nazivStarogPiva">Naziv</label>
+            <input type="text" class="form-control" id="nazivStarogPiva" ng-model="staroPivo.naziv" placeholder="Naziv">
+        </div>
+        <div class="form-group">
+          <label for="vrstaStaroPivo">Vrsta</label>
+              <select class="form-control" name="vrstaStaroPivo" ng-model="staroPivo.vrsta">
+                  <option ng-repeat="pivo in piva" value="{{pivo.vrsta}}">{{pivo.vrsta}}</option>
+              </select>
+        </div>
+        <div class="form-group">
+            <label for="alkStaroPivo">Procenat alkohola</label>
+            <input type="text" class="form-control" id="alkStaroPivo" ng-model="staroPivo.alkohol" placeholder="Procenat alkohola">
+        </div>
+        <div class="form-group">
+            <label for="ibuStaroPivo">IBU</label>
+            <input type="text" class="form-control" id="ibuStaroPivo" ng-model="staroPivo.ibu" placeholder="IBU">
+        </div>
+      <div class="form-group">
+          <label for="kolicinaStaroPivo">Kolicina na stanju</label>
+          <input type="text" class="form-control" id="kolicinaStaroPivo" ng-model="staroPivo.stanje" placeholder="Kolicina">
+      </div>
+        <div class="form-group">
+            <label for="pivaraStaroPivo">Pivara</label>
+            <select class="form-control" id="pivaraStaroPivo" ng-model="staroPivo.pivaraId">
+                <option ng-repeat="pivara in pivare" value="{{pivara.id}}">{{pivara.naziv}}</option>
+
+            </select>
+        </div>
+
+        <button type="button" class="btn btn-primary" ng-click="izmeni()">izmeni</button>
+    </form>
+
+  </div>
+</div>

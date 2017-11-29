@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: modul3test1 Maven Webapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Tanja
+Implementation-Vendor-Id: jwd21
+Build-Jdk: 1.8.0_131
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

@@ -1,0 +1,6 @@
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #c0c0c0;
+}
+#naslov {
+  background-color: lightgray;
+}

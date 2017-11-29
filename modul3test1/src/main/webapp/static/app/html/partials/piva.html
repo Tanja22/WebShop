@@ -1,0 +1,99 @@
+<div ng-controller="pivaCtrl">
+  <form>
+      <div class="form-group">
+          <label for="nazivNovogPiva">Naziv</label>
+          <input type="text" class="form-control" id="nazivNovogPiva" ng-model="novoPivo.naziv" placeholder="Naziv">
+      </div>
+      <div class="form-group">
+        <label for="vrstaNovoPivo">Vrsta</label>
+            <select class="form-control" name="vrstaNovoPivo" ng-model="novoPivo.vrsta">
+                <option ng-repeat="pivo in piva" value="{{pivo.vrsta}}">{{pivo.vrsta}}</option>
+            </select>
+      </div>
+      <div class="form-group">
+          <label for="alkNovoPivo">Procenat alkohola</label>
+          <input type="text" class="form-control" id="alkNovoPivo" ng-model="novoPivo.alkohol" placeholder="Procenat alkohola">
+      </div>
+      <div class="form-group">
+          <label for="ibuNovoPivo">IBU</label>
+          <input type="text" class="form-control" id="ibuNovoPivo" ng-model="novoPivo.ibu" placeholder="IBU">
+      </div>
+    <div class="form-group">
+        <label for="kolicinaNovoPivo">Kolicina na stanju</label>
+        <input type="text" class="form-control" id="kolicinaNovoPivo" ng-model="novoPivo.stanje" placeholder="Kolicina">
+    </div>
+      <div class="form-group">
+          <label for="pivaraNovoPivo">Pivara</label>
+          <select class="form-control" id="pivaraNovoPivo" ng-model="novoPivo.pivaraId">
+              <option ng-repeat="pivara in pivare" value="{{pivara.id}}">{{pivara.naziv}}</option>
+
+          </select>
+      </div>
+
+      <button type="button" class="btn btn-primary" ng-if="!izmena" ng-click="dodaj()">Dodaj</button>
+      <button type="button" class="btn btn-primary" ng-if="izmena" ng-click="update()">Izmeni</button>
+  </form>
+  <br/>
+  <br/>
+  <br/>
+
+  <form>
+    <div class="form-group">
+        <label for="nazivTrazenoPivo">Naziv</label>
+        <input type="text" class="form-control" name="nazivTrazenoPivo" ng-model="trazenoPivo.naziv" placeholder="Naziv">
+    </div>
+      <div class="form-group">
+          <label for="minIbuTrazenoPivo">Minimalni ibu</label>
+          <input type="text" class="form-control" name="minIbuTrazenoPivo" ng-model="trazenoPivo.minIbu" placeholder="Minimalni ibu">
+      </div>
+      <div class="form-group">
+          <label for="maxIbuTrazenoPivo">Maksimalni ibu</label>
+          <input type="text" class="form-control" name="minIbuTrazenoPivo" ng-model="trazenoPivo.maxIbu" placeholder="Maksimalni ibu">
+      </div>
+
+      <div class="form-group">
+          <label for="pivaraTrazenoPivo">Pivara</label>
+          <input type="text" class="form-control" name="pivaraTrazenoPivo" ng-model="trazenoPivo.pivaraNaziv" placeholder="Pivara">
+      </div>
+
+
+      <button type="button" class="btn btn-primary" ng-click="trazi()">Filtriraj</button>
+      <button type="button" class="btn btn-primary" ng-click="nestalo()">Nestalo</button>
+  </form>
+
+  <br/>
+    <br/>
+    <br/>
+    <div class="btn-group pull-right">
+       <button class="btn btn-primary" ng-click="nazad()" ng-disabled="pageNum==0">Prethodna</button>
+       <button class="btn btn-primary" ng-click="napred()" ng-disabled="pageNum == totalPages - 1">Sledeca</button>
+   </div>
+
+   <table class="table table-striped">
+      <tr>
+          <th>Naziv</th>
+          <th>Vrsta</th>
+          <th>Procenat alkohola</th>
+          <th>IBU</th>
+          <th>Stanje</th>
+          <th>Pivara</th>
+      </tr>
+      <tr ng-repeat="pivo in piva">
+          <td>{{pivo.naziv}}</td>
+          <td>{{pivo.vrsta}}</td>
+          <td>{{pivo.alkohol}}</td>
+          <td>{{pivo.ibu}}</td>
+          <td>{{pivo.stanje}}</td>
+          <td>{{pivo.pivaraNaziv}}</td>
+
+
+          <td>
+              <button class="btn btn-danger" ng-click="obrisi(pivo.id)">Obrisi</button>
+              <button class="btn btn-warning" ng-click="izmeniNaIstoj(pivo.id)">Izmeni</button>
+              <button class="btn btn-warning" ng-click="izmeni(pivo.id)">Izmeni na novoj strani</button>
+              <button class="btn btn-warning" ng-click="kupi(pivo.id)">Kupi</button>
+
+          </td>
+      </tr>
+    </table>
+  </div>
